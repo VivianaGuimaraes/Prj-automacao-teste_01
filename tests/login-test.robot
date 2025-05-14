@@ -18,13 +18,17 @@ fechar navegador
 *** Variables ***
 ${site_test}     https://demoqa.com/automation-practice-form
 
-${primeiro_nome}    //*[@id="firstName"]
+${primeiro_nome}    //*[@id="firstName"] 
 
 
 *** Test Cases ***
-Cenário 1: Teste abrir navegador
-    abrir site do google
-    preencher primeiro nome
+CT-1: Logar com sucesso no HOT
+    DADO usuário que acessa o site do HOT
+    QUANDO informa login válido 
+    E informa senha válida
+    E clica na funcionalidade login
+    ENTÃO sistema carrega interface inicial do HOT
+    
 
 
 
