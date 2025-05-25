@@ -1,0 +1,43 @@
+# Criar ambiente virtual
+------------------------
+==> python -m venv .[nome da vm]
+
+
+# Ativar e desativar ambiente virtual
+-------------------------------------
+==> .[nome da vm]\scripts\activate
+
+
+# Desativar ambiente virtual
+-----------------------------
+==> Estando com a vm ativada, usar o comando (deactivate)
+OBS.: Após voltar para o prompt normal o Python e pip voltam a usar os pacotes globais do sistema, e não os do ambiente virtual.
+
+
+# Instando libs (bibliotecas)
+-----------------------------
+==>pip install robotframework-[nome da biblioteca]
+
+
+# Listar todas as bibliotecas instaladas
+----------------------------------------
+==> pip freeze
+
+
+# Gerar arquivo requirements.txt com as dependências (libs instaladas)
+------------------------------------------------------
+==> pip freeze > requirements.txt
+
+
+# Instalar as libs (salvas no arquivo requirements.txt) de outro ambiente, ou em um servidor
+--------------------------------------------------------------------------------------------
+==> pip install -m requeriments.txt
+
+
+# Comando para executar testes e salvar resultados em pasta específica
+----------------------------------------------------------------------
+==> robot --outputdir ./reports tests/
+
+* --outputdir ./reports → define a pasta onde os arquivos de resultado (output.xml, log.html, report.html) e screenshots serão salvos
+* tests/ → pasta onde estão os arquivos (suite de teste) .robot
+

@@ -13,6 +13,7 @@ ${site_google}         https://google.com.br
 
 DADO que usuario que acessa o site do GOOGLE
     Open Browser    ${site_google}     Chrome
-    Sleep    50s
-    Capture Page Screenshot
-    #Maximize Browser Window
+    Maximize Browser Window
+    Sleep    5s
+    
+   

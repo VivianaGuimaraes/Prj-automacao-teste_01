@@ -11,6 +11,7 @@ CT-1: Logar com sucesso no HOT
     QUANDO informa email válido 
     E informa senha válida
     E clica na funcionalidade Entrar
+    
         
     
 

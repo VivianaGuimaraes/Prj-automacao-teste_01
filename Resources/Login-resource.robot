@@ -2,6 +2,7 @@
 Library        SeleniumLibrary
 
 
+
 # *** Keywords ***
 # abrir site do google
 #     Open Browser    ${site_test}    Chrome
@@ -60,7 +61,6 @@ E clica na funcionalidade Entrar
     Capture Page Screenshot 
     #Sleep  10s 
         # ENTÃO sistema carrega interface inicial do HOT
-    
 
 
 
