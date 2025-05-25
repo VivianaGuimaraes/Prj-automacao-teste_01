@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.7 on win32)" generated="2025-05-25T00:20:19.850234" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\BP-WEB\tests">
+<suite id="s1-s1" name="Google" source="C:\BP-WEB\tests\google.robot">
+<test id="s1-s1-t1" name="CT-1: Logar com sucesso no GOOGLE" line="9">
+<kw name="DADO que usuario que acessa o site do GOOGLE" owner="google-resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-25T00:20:20.352961" level="INFO">Opening browser 'Chrome' to base url 'https://google.com.br'.</msg>
+<arg>${site_google}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-25T00:20:20.352961" elapsed="4.802276"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-25T00:21:15.155976" level="INFO">Slept 50 seconds.</msg>
+<arg>50s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-25T00:20:25.155237" elapsed="50.000739"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-25T00:21:15.259561" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-25T00:21:15.155976" elapsed="0.103585"/>
+</kw>
+<status status="PASS" start="2025-05-25T00:20:20.352961" elapsed="54.906600"/>
+</kw>
+<status status="PASS" start="2025-05-25T00:20:20.352961" elapsed="54.906600"/>
+</test>
+<status status="PASS" start="2025-05-25T00:20:19.897495" elapsed="55.373084"/>
+</suite>
+<suite id="s1-s2" name="Login-test" source="C:\BP-WEB\tests\Login-test.robot">
+<test id="s1-s2-t1" name="CT-1: Logar com sucesso no HOT" line="9">
+<kw name="DADO que usuario que acessa o site do HOT" owner="Login-resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-25T00:21:15.299988" level="INFO">Opening browser 'Chrome' to base url 'https://hotcorphml.globalhitss.com.br/login/'.</msg>
+<arg>${site_test}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-25T00:21:15.299988" elapsed="7.461470"/>
+</kw>
+<status status="PASS" start="2025-05-25T00:21:15.299988" elapsed="7.461470"/>
+</kw>
+<kw name="QUANDO informa email válido" owner="Login-resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${field_email}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-25T00:21:22.761458" elapsed="0.041776"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-25T00:21:22.803234" level="INFO">Clicking element 'name:username'.</msg>
+<arg>${field_email}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T00:21:22.803234" elapsed="0.142071"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-25T00:21:22.945305" level="INFO">Typing text 'viviana.guimaraes@globalhitss.com.br' into text field 'name:username'.</msg>
+<arg>${field_email}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T00:21:22.945305" elapsed="0.130702"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-25T00:21:33.076469" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-25T00:21:23.076007" elapsed="10.000462"/>
+</kw>
+<status status="PASS" start="2025-05-25T00:21:22.761458" elapsed="10.315011"/>
+</kw>
+<kw name="E informa senha válida" owner="Login-resource">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-25T00:21:33.076469" level="INFO">Clicking element 'name:password'.</msg>
+<arg>${field_senha}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T00:21:33.076469" elapsed="0.102738"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-25T00:21:33.179207" level="INFO">Typing text 'Mudar@2025' into text field 'name:password'.</msg>
+<arg>${field_senha}</arg>
+<arg>${senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T00:21:33.179207" elapsed="0.092395"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-25T00:21:33.454410" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-25T00:21:33.271602" elapsed="0.182808"/>
+</kw>
+<status status="PASS" start="2025-05-25T00:21:33.076469" elapsed="0.377941"/>
+</kw>
+<kw name="E clica na funcionalidade Entrar" owner="Login-resource">
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${button_entrar}</arg>
+<arg>Entrar</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-05-25T00:21:33.454410" elapsed="0.032363"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-25T00:21:33.486773" level="INFO">Clicking element 'id:login_submit'.</msg>
+<arg>${button_entrar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T00:21:33.486773" elapsed="0.091874"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${popup_aviso}</arg>
+<arg>Aviso</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-05-25T00:21:33.578647" elapsed="2.442713"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-25T00:21:41.031959" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-25T00:21:36.031390" elapsed="5.000569"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-25T00:21:41.153462" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-25T00:21:41.031959" elapsed="0.121503"/>
+</kw>
+<status status="PASS" start="2025-05-25T00:21:33.454410" elapsed="7.699052"/>
+</kw>
+<status status="PASS" start="2025-05-25T00:21:15.294735" elapsed="25.858727"/>
+</test>
+<status status="PASS" start="2025-05-25T00:21:15.271438" elapsed="25.882024"/>
+</suite>
+<status status="PASS" start="2025-05-25T00:20:19.850234" elapsed="81.303228"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="2" fail="0" skip="0">Tests</stat>
+<stat name="Google" id="s1-s1" pass="1" fail="0" skip="0">Tests.Google</stat>
+<stat name="Login-test" id="s1-s2" pass="1" fail="0" skip="0">Tests.Login-test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-05-25T00:20:19.850234" level="WARN">Error in file 'C:\BP-WEB\tests\google.robot' on line 1: Singular section headers like '***Setting***' are deprecated. Use plural format like '*** Settings ***' instead.</msg>
+<msg time="2025-05-25T00:20:19.850234" level="WARN">Error in file 'C:\BP-WEB\tests\Login-test.robot' on line 1: Singular section headers like '***Setting***' are deprecated. Use plural format like '*** Settings ***' instead.</msg>
+<msg time="2025-05-25T00:20:20.352961" level="WARN">Error in file 'C:\BP-WEB\Resources\google-resource.robot' on line 1: Singular section headers like '***Setting***' are deprecated. Use plural format like '*** Settings ***' instead.</msg>
+<msg time="2025-05-25T00:21:15.286673" level="WARN">Error in file 'C:\BP-WEB\Resources\Login-resource.robot' on line 1: Singular section headers like '***Setting***' are deprecated. Use plural format like '*** Settings ***' instead.</msg>
+</errors>
+</robot>
