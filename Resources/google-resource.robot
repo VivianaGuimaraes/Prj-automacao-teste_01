@@ -1,5 +1,7 @@
-***Setting***
-Library        SeleniumLibrary
+*** Setting ***
+# Library        SeleniumLibrary
+# Library        OperatingSystem
+Resource       ../Resources/Library-suites.robot
 
 
 *** Variables ***

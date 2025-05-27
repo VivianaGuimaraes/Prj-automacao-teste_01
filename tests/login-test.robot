@@ -1,7 +1,7 @@
-***Setting***
-Library        SeleniumLibrary
-Library        OperatingSystem
-Resource       ../Resources/Login-resource.robot 
+*** Setting ***
+# Library        ../Librarys
+# Resource       ../Resources/google-resource.robot 
+Resource       ../Resources/login-resource.robot 
 
 
 *** Test Cases ***
