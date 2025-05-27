@@ -31,12 +31,14 @@ ${aviso_ok}          xpath=//button[text()='OK']
 
 
 
+
+
 *** Keywords ***
 
 #CT-1: Logar com sucesso no HOT
 
 DADO que usuario que acessa o site do HOT
-    Open Browser    ${site_test}     Chrome
+    Open Browser    ${site_test}    Chrome
     #Maximize Browser Window
     
 
