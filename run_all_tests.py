@@ -8,7 +8,7 @@ import datetime
 import subprocess
 
 # Caminhos principais
-tests_dir = "tests"
+tests_dir = "suite_tests"
 reports_base = "reults_tests"
 
 # Garante que a pasta de relatórios existe

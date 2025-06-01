@@ -1,8 +1,9 @@
-*** Setting ***
+*** Settings ***
 
 # Library        SeleniumLibrary
 # Library        OperatingSystem
-Resource       ../Resources/Library-suites.robot
+#Resource       ../Resources/Library-suites.robot
+Resource       ../Librarys/Library-suites.robot
 
 
 
