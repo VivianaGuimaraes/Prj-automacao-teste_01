@@ -2,9 +2,13 @@
 
 # Library        SeleniumLibrary
 # Library        OperatingSystem
-#Resource       ../Resources/Library-suites.robot
-Resource       ../Librarys/Library-suites.robot
+#Resource       ../Librarys/Library-suites.robot
+#Resource        ../Prj-automacao-teste_01/Librarys/Library-suites.robot
+#Library         SeleniumLibrary
 
+
+#direciona para o arquivo "Libraries-suites.robot" que contém todoas as library necessárias para os testes
+Resource        ../Resources/Libraries/Libraries-file_resources.robot
 
 
 # *** Keywords ***
@@ -22,7 +26,7 @@ Resource       ../Librarys/Library-suites.robot
 
 
 *** Variables ***
-${site_test}         https://hotcorphml.globalhitss.com.br/login/
+${site_hot}          https://hotcorphml.globalhitss.com.br/login/
 ${field_email}       name:username
 ${email}             viviana.guimaraes@globalhitss.com.br
 ${field_senha}       name:password
@@ -42,7 +46,7 @@ ${aviso_ok}          xpath=//button[text()='OK']
 #CT-1: Logar com sucesso no HOT
 
 DADO que usuario que acessa o site do HOT
-    Open Browser    ${site_test}    Chrome
+    Open Browser    ${site_hot}    Chrome
     #Maximize Browser Window
     
 
@@ -65,6 +69,7 @@ E clica na funcionalidade Entrar
     #Click Element                  ${aviso_ok}
     Sleep  5s 
     Capture Page Screenshot 
+    close Browser
     #Sleep  10s 
         # ENTÃO sistema carrega interface inicial do HOT
 

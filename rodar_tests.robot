@@ -26,5 +26,6 @@ Teste novo
     #Log To Console    \nEU QUERO SABER QUEM É: ${name_user}
     Run Keyword If    '${name_user}' == 'Maria'    Log To Console    Olá, Maria!
     Run Keyword If    '${name_user}' != 'Maria'    Log To Console    O nome secreto é ${name_user} 
+    
        
 
