@@ -1,4 +1,6 @@
 *** Settings ***
+
+
 #Library        SeleniumLibrary
 #Resource       ../Prj-automacao-teste_01/Resources/google-resource.robot 
 #Resource        ../Prj-automacao-teste_01/Resources/Libraries-suites.robot
@@ -16,4 +18,4 @@ Teste simples
     Maximize Browser Window
     Sleep    7s
     Capture Page Screenshot 
-    close Browser
+    Close Browser

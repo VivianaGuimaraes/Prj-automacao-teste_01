@@ -37,16 +37,11 @@ ${popup_aviso}       id:ModalLabel1
 ${aviso_ok}          xpath=//button[text()='OK']
 
 
-
-
-
-
 *** Keywords ***
 
 #CT-1: Logar com sucesso no HOT
-
 DADO que usuario que acessa o site do HOT
-    Open Browser    ${site_hot}    Chrome
+    Open Browser   ${site_hot}    Chrome
     #Maximize Browser Window
     
 
@@ -69,7 +64,7 @@ E clica na funcionalidade Entrar
     #Click Element                  ${aviso_ok}
     Sleep  5s 
     Capture Page Screenshot 
-    close Browser
+    Close Browser
     #Sleep  10s 
         # ENTÃO sistema carrega interface inicial do HOT
 

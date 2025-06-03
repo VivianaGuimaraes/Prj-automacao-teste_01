@@ -1,4 +1,5 @@
 *** Settings ***
+
 # Library        SeleniumLibrary
 # Library        OperatingSystem
 #Resource       ../Librarys/Library-suites.robot
@@ -20,7 +21,7 @@ ${site_google}         https://google.com.br
 #CT-1: Logar com sucesso no HOT
 
 DADO que usuario que acessa o site do GOOGLE
-    Open Browser    ${site_google}     Chrome
+    Open Browser   ${site_google}     Chrome
     Maximize Browser Window
     Sleep    5s
     Capture Page Screenshot 

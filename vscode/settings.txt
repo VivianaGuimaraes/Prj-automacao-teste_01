@@ -2,5 +2,5 @@
   "python.pythonPath": "${workspaceFolder}/.VM-BPWEB/Scripts/python.exe",
   "robot.language-server.python": "${workspaceFolder}/.VM-BPWEB/Scripts/python.exe",
   "robot.language-server.trace.server": "verbose",
-  "robot.language-server.libraries.libdoc.mode": "off"
+  "robot.language-server.libraries.libdoc.mode": "true"
 }
