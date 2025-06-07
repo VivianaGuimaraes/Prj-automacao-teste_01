@@ -13,7 +13,7 @@ ${site_diverso}         https://www.computandoarte.com.br
 
 
 *** Test Cases ***
-Teste simples
+Teste simples    
     Open Browser    ${site_diverso}     Chrome
     Maximize Browser Window
     Sleep    7s

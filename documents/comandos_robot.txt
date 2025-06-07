@@ -31,7 +31,7 @@ OBS.: Após voltar para o prompt normal o Python e pip voltam a usar os pacotes 
 
 # Instalar as libs (salvas no arquivo requirements.txt) de outro ambiente, ou em um servidor
 --------------------------------------------------------------------------------------------
-==> pip install -m requeriments.txt
+==> pip install -r requirements.txt
 
 
 # Comando para executar testes e salvar resultados em pasta específica

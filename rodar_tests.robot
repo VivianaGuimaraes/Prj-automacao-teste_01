@@ -1,5 +1,5 @@
 *** Settings ***
-Resource       ../Prj-automacao-teste_01/Librarys/Library-suites.robot
+Resource       ../Resources/Libraries/Libraries-file_resources.robot
 #Resource    C:/GLOBAL_HITSS/Prj-automacao-teste_01/Librarys/Library-suites.robot
 
 

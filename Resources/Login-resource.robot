@@ -49,7 +49,7 @@ QUANDO informa email válido
     Wait Until Element Is Visible   ${field_email}    
     Click Element    ${field_email}
     Input Text       ${field_email}    ${email}    
-    Sleep    10s    
+    Sleep    2s    
 E informa senha válida
     Click Element    ${field_senha}
     Input Text       ${field_senha}    ${senha}
