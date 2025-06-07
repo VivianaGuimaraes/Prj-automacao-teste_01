@@ -8,7 +8,7 @@
 
 
 #direciona para o arquivo "Libraries-suites.robot" que contém todoas as library necessárias para os testes
-Resource        ../Resources/Libraries/Libraries-file_resources.robot
+Resource        ../BPWEB/Resources/Libraries/Libraries-file_resources.robot
 
 
 # *** Keywords ***

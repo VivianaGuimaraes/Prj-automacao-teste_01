@@ -5,7 +5,7 @@
 
 
 #direciona para o arquivo "login-resource.robot" com passos de testes localizado no diretório "Resource"
-Resource       ../Resources/ExeLogin-resource.robot 
+Resource       ../BPWEB/Resources/ExeLogin-resource.robot 
 
 
 

@@ -6,7 +6,7 @@
 
 
 #direciona para o arquivo "google-resource.robot" com passos de testes localizado no diretório "Resource"
-Resource       ../Resources/google-resource.robot 
+Resource       ../BPWEB/Resources/google-resource.robot 
 
 
 

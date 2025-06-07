@@ -19,6 +19,14 @@ OBS.: Após voltar para o prompt normal o Python e pip voltam a usar os pacotes 
 ==>pip install robotframework-[nome da biblioteca]
 
 
+
+# Instalar versões compatíveis e estáveis
+-----------------------------------------
+==>pip install robotframework==6.0.2
+==>pip install robotframework-robocop==3.2.0
+
+
+
 # Listar todas as bibliotecas instaladas
 ----------------------------------------
 ==> pip freeze

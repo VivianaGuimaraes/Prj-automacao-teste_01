@@ -5,7 +5,7 @@
 
 
 #direciona para o arquivo "login-resource.robot" com passos de testes localizado no diretório "Resource"
-Resource       ../Resources/ExeLogin-resource.robot 
+Resource       ../BPWEB/Resources/login-resource.robot 
 
 
 
@@ -13,5 +13,13 @@ Resource       ../Resources/ExeLogin-resource.robot
 
 # [Documentation]    Suite de teste do site HOT  
 CT-1: Logar com sucesso no HOT
-    Executar Suite de Testes de Login
+    DADO que usuario que acessa o site do HOT
+    QUANDO informa email válido 
+    E informa senha válida
+    E clica na funcionalidade Entrar
     
+        
+
+
+
+
