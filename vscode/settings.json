@@ -1,32 +1,53 @@
 {
-  // Caminho para o Python do ambiente virtual
-  "python.pythonPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+    // Caminho para o Python do ambiente virtual
+    "python.pythonPath": "${workspaceFolder}/.venv/Scripts/python.exe",
 
-  // Configurações do Language Server do Robot Framework
-  "robot.language-server.python": "${workspaceFolder}/.venv/Scripts/python.exe",
-  "robot.language-server.args": [],
+    // Configurações do Language Server do Robot Framework
+    "robot.language-server.python": "${workspaceFolder}/.venv/Scripts/python.exe",
+    "robot.language-server.args": [],
 
-  // Se usar pastas extras para Resources, Libraries, etc.
-  "robot.pythonpath": [
-    "${workspaceFolder}/BPWEB/Resources"
-  ],
+    // Se usar pastas extras para Resources, Libraries, etc.
+    "robot.pythonpath": [
+        "${workspaceFolder}/GEST-DEMANDAS/Resources",
+        "${workspaceFolder}/GEST-DEMANDAS/libraries"
+    ],
 
-  // Exemplo de variável global se usar ${SITE_DIVERSO}, etc.
-  "robot.variables": {
-    "SITE_DIVERSO": "https://seusite.com"
-  },
+    // Variáveis globais
+    "robot.variables": {
+        "SITE_DIVERSO": "https://seusite.com"
+    },
 
-  // Ativa linting do Robocop no VS Code
-  "robot.lint.robocop.enabled": true,
+    // Ativa linting do Robocop no VS Code
+    "robot.lint.robocop.enabled": true,
+    "robot.lint.robocop.executable": "${workspaceFolder}/.venv/Scripts/robocop.exe",
 
-  // Caminho para o robocop se quiser forçar
-  "robot.lint.robocop.executable": "${workspaceFolder}/.venv/Scripts/robocop.exe",
+    // Estilo de indentação e salvamento
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "files.eol": "\r\n",
+    "files.autoSave": "onFocusChange",
 
-  // Estilo de indentação
-  "editor.tabSize": 4,
-  "editor.insertSpaces": true,
-  "files.eol": "\r\n",
+    // Ajustes finais para boa prática
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
 
-  // Recarrega ao salvar
-  "files.autoSave": "onFocusChange"
+    // Formatação automática para arquivos .robot
+    "[robot]": {
+        "editor.formatOnSave": true
+    },
+
+"robot.lint.robocop.rules": {
+    "enabled": [],
+    "disabled": [
+        "0203",  // Missing documentation in suite
+        "0302",  // Keyword name does not follow case convention
+        "0503",  // Keyword has too many keywords inside
+        "1002",  // Missing trailing blank line
+        "1003",  // Invalid number of empty lines between sections
+        "0913"   // No tests in resource file
+    ]
+}
+
+
+
 }

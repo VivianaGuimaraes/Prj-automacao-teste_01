@@ -1,0 +1,57 @@
+# Ambiente virtual (Python)
+.venv/
+venv/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VS Code
+.vscode/
+
+# PyCharm / JetBrains
+.idea/
+
+# Arquivos do Robot Framework
+output.xml
+log.html
+report.html
+*.log
+*.png
+*.jpg
+*.svg
+*.gif
+*.webp
+*.jpeg
+
+# Arquivos gerados por testes interativos
+interactive_console_output.xml
+
+# Arquivos temporários / de backup
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# Bases de dados locais
+*.db
+*.sqlite
+
+# Logs customizados (se houver)
+logs/
+*.log
+
+# Arquivos CSV/JSON temporários
+*.csv
+*.json
+
+# Arquivos gerados por linter
+.robocop_cache/
+.robocop.log
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini

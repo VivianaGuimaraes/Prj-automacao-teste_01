@@ -1,7 +1,9 @@
 *** Settings ***
+Documentation    Direciona para o arquivo Libraries-suites.robot que 
+...              contém todas as library necessárias para os testes
+Resource                        ../Resources/Libraries/Libraries-file_resources.robot
 
-# direciona para o arquivo "Libraries-suites.robot" que contém todas as library necessárias para os testes
-Resource    ../GEST-DEMANDAS/Resources/Libraries/Libraries-file_resources.robot
+
 *** Variables ***
 ${SITE_HOT}                      https://hotcorphml.globalhitss.com.br/login/
 ${FIELD_EMAIL}                   name:username
@@ -9,7 +11,7 @@ ${EMAIL}                         viviana.guimaraes@globalhitss.com.br
 ${FIELD_SENHA}                   name:password
 ${SENHA}                         Mudar@2025
 ${BUTTON_ENTRAR}                 id:login_submit
-${OUTPUTDIR}                     ../results
+# ${OUTPUTDIR}                     ../results
 ${POPUP_AVISO}                   id:ModalLabel1
 ${AVISO_OK}                      xpath=//button[text()='OK']
 ${MENUS_HOT}                     //*[@class='navbar-toggler-icon']
@@ -19,10 +21,9 @@ ${SUBMENUS_LISTAR_DEMANDA}       //a[contains(text(), 'Listar Demandas')]
 ${BUSCA_DEMANDA}                 //*[@id='search_demand']
 ${COD_DEMANDA}                   NRJCLA2670
 
-*** Keywords ***
 
-# CT-1: Logar com sucesso no HOT
-Executar suite de teste 
+*** Keywords ***
+Executar Suite
     [Documentation]  Executa os passos principais de login para o site HOT
     Open Browser      ${SITE_HOT}    Chrome
     Maximize Browser Window
@@ -49,7 +50,7 @@ Executar suite de teste
     Click Button     ${AVISO_OK}
     Click Element    ${MENUS_HOT}
     Click Element    ${SUBMENUS_GESTAO_DEMANDA}
-    # Click Element    ${submenus_nova_demanda} 
+    # Click Element    ${submenus_nova_demandas}
     Sleep  3s
     Capture Page Screenshot
     Click Element    ${SUBMENUS_LISTAR_DEMANDA}

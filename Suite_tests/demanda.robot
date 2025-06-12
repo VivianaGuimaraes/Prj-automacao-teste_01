@@ -1,7 +1,10 @@
 *** Settings ***
-# direciona para o arquivo "login-resource.robot" com passos de testes localizado no diretório "Resource"
-Resource       ../GEST-DEMANDAS/Resources/ExeLogin-resource.robot
+Documentation    Suite para validar login no sistema HOT
+Resource    ../Resources/ExeLogin-resource.robot
+
 
 *** Test Cases ***
-CT-1: Logar com sucesso no HOT
-        Executar suite de teste
+CT-1: Login com sucesso no HOT
+    [ Documentation ]   Valida se o usuário consegue acessar o sistema com sucesso.
+
+    Executar Suite
