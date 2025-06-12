@@ -1,0 +1,17 @@
+Elemento HTML:
+<button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+
+Seletores XPath:
+1. //button[text()='OK']
+2. //button[@data-bs-dismiss='modal']
+3. //button[contains(@class, 'btn-primary')]
+
+Seletores CSS:
+1. button.btn.btn-primary
+2. button[data-bs-dismiss="modal"]
+
+Uso no Robot Framework:
+- XPath:
+  Click Element    xpath=//button[text()='OK']
+- CSS:
+  Click Element    css=button.btn.btn-primary

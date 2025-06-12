@@ -1,0 +1,32 @@
+{
+  // Caminho para o Python do ambiente virtual
+  "python.pythonPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+
+  // Configurações do Language Server do Robot Framework
+  "robot.language-server.python": "${workspaceFolder}/.venv/Scripts/python.exe",
+  "robot.language-server.args": [],
+
+  // Se usar pastas extras para Resources, Libraries, etc.
+  "robot.pythonpath": [
+    "${workspaceFolder}/BPWEB/Resources"
+  ],
+
+  // Exemplo de variável global se usar ${SITE_DIVERSO}, etc.
+  "robot.variables": {
+    "SITE_DIVERSO": "https://seusite.com"
+  },
+
+  // Ativa linting do Robocop no VS Code
+  "robot.lint.robocop.enabled": true,
+
+  // Caminho para o robocop se quiser forçar
+  "robot.lint.robocop.executable": "${workspaceFolder}/.venv/Scripts/robocop.exe",
+
+  // Estilo de indentação
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "files.eol": "\r\n",
+
+  // Recarrega ao salvar
+  "files.autoSave": "onFocusChange"
+}

@@ -1,0 +1,58 @@
+
+==============================
+📌 Comandos Git Essenciais
+==============================
+
+🔧 CONFIGURAÇÃO INICIAL
+-----------------------
+git config --global user.name "Seu Nome"
+git config --global user.email "seu@email.com"
+git config --list
+
+📥 CLONE DE REPOSITÓRIO
+-----------------------
+git clone https://github.com/usuario/repositorio.git
+
+🌿 BRANCHES
+-----------
+git branch                        # Lista branches locais
+git branch -a                     # Lista locais e remotas
+git branch nome-da-branch         # Cria nova branch
+git checkout nome-da-branch       # Muda para a branch
+git switch nome-da-branch         # Alternativa moderna ao checkout
+git checkout -b nova-branch       # Cria e muda para nova branch
+git branch -d nome                # Deleta branch local
+
+🔄 ATUALIZAR REPOSITÓRIO
+------------------------
+git fetch                         # Busca mudanças (não aplica)
+git pull                          # Busca e aplica (merge automático)
+
+💾 CONTROLE DE ALTERAÇÕES
+-------------------------
+git status                        # Ver arquivos modificados
+git add arquivo.txt               # Adiciona arquivo ao stage
+git add .                         # Adiciona tudo ao stage
+git commit -m "Mensagem"          # Faz commit
+git log                           # Ver histórico de commits
+
+🚀 ENVIAR ALTERAÇÕES PARA O REMOTO
+----------------------------------
+git push origin nome-da-branch
+
+📥 OBTER BRANCH REMOTA
+-----------------------
+git fetch origin
+git checkout nome-da-branch
+git switch -c nome-da-branch origin/nome-da-branch
+
+🛠️ OUTROS ÚTEIS
+---------------
+git stash                         # Guarda alterações não commitadas
+git stash pop                     # Restaura alterações guardadas
+git diff                          # Mostra diferenças entre arquivos
+
+🔍 VERIFICAR REPOSITÓRIO ATUAL
+------------------------------
+git remote -v                     # Mostra o repositório remoto ativo
+git rev-parse --show-toplevel    # Mostra o caminho do repositório local
