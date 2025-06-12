@@ -44,7 +44,8 @@
         "0503",  // Keyword has too many keywords inside
         "1002",  // Missing trailing blank line
         "1003",  // Invalid number of empty lines between sections
-        "0913"   // No tests in resource file
+        "0913",   // No tests in resource file
+        "0503"    //
     ]
 }
 
