@@ -9,7 +9,7 @@ import subprocess
 
 # Caminhos principais
 tests_dir = "suite_tests"
-reports_base = "reults_tests"
+reports_base = "Results_tests"
 
 # Garante que a pasta de relatórios existe
 os.makedirs(reports_base, exist_ok=True)
