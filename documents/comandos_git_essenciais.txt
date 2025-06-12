@@ -23,6 +23,25 @@ git switch nome-da-branch         # Alternativa moderna ao checkout
 git checkout -b nova-branch       # Cria e muda para nova branch
 git branch -d nome                # Deleta branch local
 
+
+
+🌿 CRIAR NOVA BRANCH VIA REPOSITÓRIO LOCAO EM UM REPOSITÓRIO REMOTO
+-------------------------------------------------------------------
+git checkout -b nome_nova-branch                                                  # Cria e muda para nova branch
+git remote add origin https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git      # Adiciona o repositório remoto
+
+
+🚀 ENVIAR ALTERAÇÕES PARA O REMOTO
+----------------------------------
+git push origin nome-da-branch                                 # Envia para a branch os itens commitados para a branch remota
+
+OU
+
+git push -u origin gest_demandas-automacao                     # Envia para a branch os itens commitados para a branch remota
+                                                                 ** O parâmetro -u configura o origin como repositório remoto padrão da sua branch local.
+
+
+
 🔄 ATUALIZAR REPOSITÓRIO
 ------------------------
 git fetch                         # Busca mudanças (não aplica)
@@ -34,11 +53,14 @@ git status                        # Ver arquivos modificados
 git add arquivo.txt               # Adiciona arquivo ao stage
 git add .                         # Adiciona tudo ao stage
 git commit -m "Mensagem"          # Faz commit
+git commit -a  -m "Mensagem"      # Forma rápida de commitar todas as alterações nos arquivos já rastreados (tracked) pelo Git — ou seja, 
+                                    arquivos que já foram adicionados previamente com git add. 
+                                    *** Esse comando não inclui arquivos novos (untracked), ou seja, arquivos que ainda não foram adicionados com git add.
 git log                           # Ver histórico de commits
 
-🚀 ENVIAR ALTERAÇÕES PARA O REMOTO
-----------------------------------
-git push origin nome-da-branch
+
+
+
 
 📥 OBTER BRANCH REMOTA
 -----------------------
@@ -55,4 +77,11 @@ git diff                          # Mostra diferenças entre arquivos
 🔍 VERIFICAR REPOSITÓRIO ATUAL
 ------------------------------
 git remote -v                     # Mostra o repositório remoto ativo
-git rev-parse --show-toplevel    # Mostra o caminho do repositório local
+git rev-parse --show-toplevel     # Mostra o caminho do repositório local
+
+
+🔍 LISTAR BRANCH REMOTADAS
+---------------------------
+
+git ls-remote --heads origin       # Mostra as branches remotas com os respectivos hashes.
+git branch -r                      # Mostra uma lista das branches remotas de forma mais amigável
