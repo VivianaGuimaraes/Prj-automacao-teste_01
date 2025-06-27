@@ -1,16 +1,16 @@
 {
-    // Caminho para o Python do ambiente virtual
-    "python.pythonPath": "${workspaceFolder}/.venv/Scripts/python.exe",
-
     // Configurações do Language Server do Robot Framework
-    "robot.language-server.python": "${workspaceFolder}/.venv/Scripts/python.exe",
+    "robot.language-server.python": "${workspaceFolder}/.venvP310/Scripts/python.exe",
     "robot.language-server.args": [],
 
     // Se usar pastas extras para Resources, Libraries, etc.
     "robot.pythonpath": [
-        "${workspaceFolder}/GEST-DEMANDAS/Resources",
-        "${workspaceFolder}/GEST-DEMANDAS/libraries"
+        "${workspaceFolder}/Resources",
+        "${workspaceFolder}/libraries"
     ],
+
+    // linha nova configuração
+    "robot.python.executable": "C:\\Python310\\python.exe",
 
     // Variáveis globais
     "robot.variables": {
@@ -19,7 +19,7 @@
 
     // Ativa linting do Robocop no VS Code
     "robot.lint.robocop.enabled": true,
-    "robot.lint.robocop.executable": "${workspaceFolder}/.venv/Scripts/robocop.exe",
+    "robot.lint.robocop.executable": "${workspaceFolder}/.venvP310/Scripts/robocop.exe",
 
     // Estilo de indentação e salvamento
     "editor.tabSize": 4,
@@ -36,19 +36,16 @@
         "editor.formatOnSave": true
     },
 
-"robot.lint.robocop.rules": {
-    "enabled": [],
-    "disabled": [
-        "0203",  // Missing documentation in suite
-        "0302",  // Keyword name does not follow case convention
-        "0503",  // Keyword has too many keywords inside
-        "1002",  // Missing trailing blank line
-        "1003",  // Invalid number of empty lines between sections
-        "0913",   // No tests in resource file
-        "0503"    //
-    ]
-}
-
-
-
+    "robot.lint.robocop.rules": {
+        "enabled": [],
+        "disabled": [
+            "0203",  // Missing documentation in suite
+            "0302",  // Keyword name does not follow case convention
+            "0503",  // Keyword has too many keywords inside
+            "1002",  // Missing trailing blank line
+            "1003",  // Invalid number of empty lines between sections
+            "0913",  // No tests in resource file
+            "0503"
+        ]
+    }
 }
