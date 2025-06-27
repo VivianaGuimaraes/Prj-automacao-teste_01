@@ -143,21 +143,23 @@ Preenche formulario Prospecção - Criacao Demanda
     Capture Page Screenshot  
     Scroll Element Into View       ${SUBMETER_F1_FASE}
     Click Button                   ${SUBMETER_F1_FASE}
+    Capture Page Screenshot 
     Sleep  20s 
     Capture Page Screenshot 
-    ${fase} =    Get Text    //div[@class="actual_phase"] 
-    # Log    PROSPECÇÃO: ${fase}
-
+    
+    ${fase} =    Get Text          //div[@class="actual_phase"] 
+    
     IF     '${fase}' == 'Fase Atual: Adotar Demanda'
-    Log    Demanda criada com sucesso! \n PROSPECÇÃO -> '${fase}'
+    Log    Demanda criada com sucesso! \n PROSPECÇÃO -> ${fase}
            
     # Aqui você colocaria os passos seguintes
     ELSE
-    Log    Fase atual inválida: '${fase}'
+    Log    Fase atual inválida: ${fase}
     Fail   Fase incorreta.
     END
-
-Preenche formulario Prospecção - Adotar Demanda 
+    
+    #Sleep  40s
+#Preenche formulario Prospecção - Adotar Demanda 
 
     # Capture Element Screenshot    ${submenus_listar_demanda}
     # Input Text       ${BUSCA_DEMANDA}     ${COD_DEMANDA}
