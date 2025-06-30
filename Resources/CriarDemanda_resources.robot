@@ -19,18 +19,14 @@ ${MENUS_HOT}                     //a[contains(text(), 'Gestão da Demanda')]
 # ${SUBMENUS_GESTAO_DEMANDA}       //a[contains(text(), 'Gestão da Demanda')]
 ${SUBMENUS_NOVA_DEMANDA}         //a[contains(text(), 'Nova Demanda')]
 
-#Formulário Prospecção - campo CLASSIFICAÇÃO
+# Formulário - PROSPECÇÃO: Criar Demanda
 ${FIELD_F1_CLASSIFICACAO}                           //*[@id="classification"]
 ${CLASSIFICACAO_OPORTUNIDADE}                      //*[@id="classification"]/option[text()="OPORTUNIDADE"]
 ${POPUP_CLASSIFICAO_OPORTUNIDADE}                 //h1[text()="Esta Oportunidade se trata de um projeto legado?"]
 ${POPUP_CLASSIFICAO_OPOTUNIDADE_NAO}             //button[@id="close_legacy_modal"]  
 # ${POPUP_CLASSIFICAO_OPOTUNIDADE_SIM}            //button[@id="is_legacy"]
-
-#Formulário Prospecção - campo TITULO DA DEMANDA
 ${FIELD_F1_TITULO_DEMANDA}                       //*[@id="demand_title"]
 ${TITULO_DEMANDA_NOME_SELECAO}                  //*[@id="client_exec_director"]/option[2]
-
-
 ${FIELD_F1_CLIENTE}                            //*[@id="client"]/option[82]
 ${FIELD_F1_DIRETORIA_CLIENTE}                  //*[@id="client_director"]/option[22]
 ${FIELD_F1_GERENTE_CLIENTE}                   //*[@id="client_manager"]/option[3]
@@ -41,13 +37,36 @@ ${FIELD_F1_DT_INICIO_PROJ}                   //*[@id="expected_start_date"]
 ${FIELD_F1_TIPO_CONTRATACAO}                //*[@id="hiring_type"]/option[3]   # [2]=LPU / [3]=Serviço Gerenciado
 ${FIELD_F1_ANEXAR_ARQUIVO}                  //*[@id="input-file-client"]
 ${CAMINHO_ARQUIVO}                          C:/GLOBAL_HITSS/GEST-DEMANDAS/data/MASSA.xlsx
-${FIELD_F1_DESCRICAO}                      //*[@id="description"]
-${SUBMETER_F1_FASE}                          //*[@id="btn_save_all"]
+${FIELD_F1_DESCRICAO}                        //*[@id="description"]
+${SUBMETER_FASE}                            //*[@id="btn_save_all"]
+
+# Formulário - PROSPECÇÃO: Adotar Demanda
+${FIELD_F2_DIRETORIA_HITSS}                   //*[@id="hitss_director"]/option[3]
+${FIELD_F2_RESP_AREA_HITSS}                  //*[@id="hitss_manager"]/option[14]
+${FIELD_F3_TORRE_HITSS}                     //*[@id="hitss_tower"]/option[3]
+${FIELD_F2_RESP_DERIVERY}                  //*[@id="delivery_owner"]/option[3]
+${FIELD_F2_RESP_DEVENGADO}                 //*[@id="owner_accurate"]/option[16]
 
 
-${SUBMENUS_LISTAR_DEMANDA}       //a[contains(text(), 'Listar Demandas')]
-${BUSCA_DEMANDA}                 //*[@id='search_demand']
-${COD_DEMANDA}                   NRJCLA2670
+# Formulário - PROSPECÇÃO: Definir Prioridade
+${FIELD_F3_SINALIZADOR_PRIORIDADE}        //*[@id="priority"]/option[2]
+${FIELD_F3_LIDER_TECNICO}                 //*[@id="technical_owner"]/option[2]
+
+
+# Formulário - PROP. TÉCNICA: Definir Complexidade
+${FIELD_F4_SINALIZADOR_COMPLEXIDADE}      //*[@id="complexity"]/option[3]
+${FIELD_F4_LOCAL_EXECUCAO}                //*[@id="execution_location"]/option[20]  #[20]=Rio de Janeiro
+${FIELD_F4_SEDE}                          //*[@id="sede"]/option[2]
+${FIELD_F4_TIPO_DEVENGADO}               //*[@id="accurate_type"]/option[2]         #[2]=Alocação de Recurso
+
+#Preenche formulario Prospecção - Elaborar Solução - PT/PC
+${FIELD_F5_NUMERO-PPM}                  //*[@id="ppm_number"]
+
+
+
+${SUBMENUS_LISTAR_DEMANDA}               //a[contains(text(), 'Listar Demandas')]
+${BUSCA_DEMANDA}                        //*[@id='search_demand']
+${COD_DEMANDA}                           NRJCLA2670
 
 
 
@@ -118,48 +137,133 @@ Preenche formulario Prospecção - Criacao Demanda
     Capture Page Screenshot 
     
     # Campo Título da Demanda
-    Input Text                     ${FIELD_F1_TITULO_DEMANDA}     OPORTUNIDADE - Viviana
+    Input Text                     ${FIELD_F1_TITULO_DEMANDA}     PV
     Click Element                  ${TITULO_DEMANDA_NOME_SELECAO}
-    
-    
-    # Campo Cliente
+    Sleep  1s    
     Click Element                  ${FIELD_F1_CLIENTE}  
     Sleep  1s
     Click Element                  ${FIELD_F1_DIRETORIA_CLIENTE}
     Sleep  1s 
     Click Element                  ${FIELD_F1_GERENTE_CLIENTE} 
-    Sleep  2s
+    Sleep  1s
     Click Element                  ${FIEDL_F1_LIDER_TEC_CLIENTE}   
-    Sleep  2s              
+    Sleep  1s              
     Click Element                  ${FIELD_F1_HORIZONTAL_VERTICAL}               
     Click Element                  ${FIELD_F1_SEGMENTO}   
     Input Text                     ${FIELD_F1_DT_INICIO_PROJ}       26/06/2025 
     Click Element                  ${FIELD_F1_TIPO_CONTRATACAO} 
-    Sleep  2s
+    Sleep  1s
     Log                            ${CAMINHO_ARQUIVO}  
     File Should Exist              ${CAMINHO_ARQUIVO}
     Choose File                    ${FIELD_F1_ANEXAR_ARQUIVO}     ${CAMINHO_ARQUIVO}
     Input Text                     ${FIELD_F1_DESCRICAO}  DEMANDA OPORTUNIDADE SEM LPU
     Capture Page Screenshot  
-    Scroll Element Into View       ${SUBMETER_F1_FASE}
-    Click Button                   ${SUBMETER_F1_FASE}
+    Scroll Element Into View       ${SUBMETER_FASE}
+    Click Button                   ${SUBMETER_FASE}
     Capture Page Screenshot 
-    Sleep  20s 
+    Sleep  2s 
     Capture Page Screenshot 
+    Sleep  5s
     
     ${fase} =    Get Text          //div[@class="actual_phase"] 
-    
     IF     '${fase}' == 'Fase Atual: Adotar Demanda'
     Log    Demanda criada com sucesso! \n PROSPECÇÃO -> ${fase}
-           
-    # Aqui você colocaria os passos seguintes
     ELSE
     Log    Fase atual inválida: ${fase}
     Fail   Fase incorreta.
     END
     
-    #Sleep  40s
-#Preenche formulario Prospecção - Adotar Demanda 
+Preenche formulario Prospecção - Adotar Demanda 
+
+    Click Element                   ${FIELD_F2_DIRETORIA_HITSS}    
+    Sleep  1s               
+    Click Element                   ${FIELD_F2_RESP_AREA_HITSS}                 
+    Sleep  1s
+    Click Element                   ${FIELD_F3_TORRE_HITSS} 
+    Sleep  1s                    
+    Click Element                   ${FIELD_F2_RESP_DERIVERY}       
+    Sleep  1s   
+    Click Element                   ${FIELD_F2_RESP_DEVENGADO} 
+    Capture Page Screenshot  
+    Scroll Element Into View        ${SUBMETER_FASE}
+    Click Button                    ${SUBMETER_FASE}
+    Capture Page Screenshot 
+    Sleep  5s 
+    Capture Page Screenshot  
+
+    ${fase_2} =    Get Text          //div[@class="actual_phase"] 
+    IF     '${fase_2}' == 'Fase Atual: Definir Prioridade'
+    Log    Fase da demanda alterada com sucesso! \n PROSPECÇÃO -> ${fase_2}
+    ELSE
+    Log    Fase atual inválida: ${fase_2}
+    Fail   Fase incorreta.
+    END
+
+Preenche formulario Prospecção - Definir Prioridade  
+
+    Click Element                    ${FIELD_F3_SINALIZADOR_PRIORIDADE}
+    Sleep  1s
+    Click Element                    ${FIELD_F3_LIDER_TECNICO}
+    Capture Page Screenshot  
+    Scroll Element Into View         ${SUBMETER_FASE}
+    Click Button                     ${SUBMETER_FASE}
+    Capture Page Screenshot 
+    Sleep  5s 
+    Capture Page Screenshot
+    
+    ${fase_2} =    Get Text          //div[@class="actual_phase"] 
+    IF     '${fase_2}' == 'Fase Atual: Definir Complexidade'
+    Log    Fase da demanda alterada com sucesso! \n PROP. TÉCNICA -> ${fase_2}
+    ELSE
+    Log    Fase atual inválida: ${fase_2}
+    Fail   Fase incorreta.
+    END
+
+
+Preenche formulario Prospecção - Definir Complexidade
+
+    Click Element                   ${FIELD_F4_SINALIZADOR_COMPLEXIDADE}
+    Sleep  1s
+    Click Element                   ${FIELD_F4_LOCAL_EXECUCAO}
+    Sleep  1s
+    Click Element                   ${FIELD_F4_SEDE}
+    Sleep  1s
+    Click Element                   ${FIELD_F4_TIPO_DEVENGADO}
+    Capture Page Screenshot  
+    Scroll Element Into View         ${SUBMETER_FASE}
+    Click Button                     ${SUBMETER_FASE}
+    Capture Page Screenshot 
+    Sleep  5s 
+    Capture Page Screenshot
+
+    ${fase_2} =    Get Text          //div[@class="actual_phase"] 
+    IF     '${fase_2}' == 'Fase Atual: Elaborar Solução - PT/PC'
+    Log    Fase da demanda alterada com sucesso! \n PROP. TÉCNICA -> ${fase_2}
+    ELSE
+    Log    Fase atual inválida: ${fase_2}
+    Fail   Fase incorreta.
+    END
+
+
+Preenche formulario Prospecção - Elaborar Solução_PT-PC
+    
+    #Numero Com 5 Digitos Usando Evaluate
+    ${numero}=    Evaluate    __import__('random').randint(10000, 99999)
+    Log    Número inteiro com 5 dígitos: ${numero}
+    Sleep  5s
+    Input TexT    ${FIELD_F5_NUMERO-PPM}    ${numero}
+    Sleep  2s
+    Capture Page Screenshot
+    Sleep  5s
+    # Click Element    
+    # Sleep  1s
+    # Click Element    
+    # Sleep  1s
+    
+    
+
+
+
 
     # Capture Element Screenshot    ${submenus_listar_demanda}
     # Input Text       ${BUSCA_DEMANDA}     ${COD_DEMANDA}
