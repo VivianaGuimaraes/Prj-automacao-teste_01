@@ -57,16 +57,35 @@ ${FIELD_F3_LIDER_TECNICO}                 //*[@id="technical_owner"]/option[2]
 ${FIELD_F4_SINALIZADOR_COMPLEXIDADE}      //*[@id="complexity"]/option[3]
 ${FIELD_F4_LOCAL_EXECUCAO}                //*[@id="execution_location"]/option[20]  #[20]=Rio de Janeiro
 ${FIELD_F4_SEDE}                          //*[@id="sede"]/option[2]
-${FIELD_F4_TIPO_DEVENGADO}               //*[@id="accurate_type"]/option[2]         #[2]=Alocação de Recurso
+${FIELD_F4_TIPO_DEVENGADO}                //*[@id="accurate_type"]/option[2]         #[2]=Alocação de Recurso
 
 #Preenche formulario Prospecção - Elaborar Solução - PT/PC
-${FIELD_F5_NUMERO-PPM}                  //*[@id="ppm_number"]
+${FIELD_F5_DIR_RESPONS_VENDA}            //*[@id="sales_director"]/option[2]
+${FIELD_F5_LINHA_NEGOCIO}                //*[@id="business_line"]/option[4]
+${FIELD_F5_SUBTIPO_CLIENTE}              //*[@id="client_type_choice"]/option[3]
+${FIELD_F5_TIPO_VENDA}                   //*[@id="sell_types"]/option[2]
+${FIELD_F5_TIPO_PROJETO}                 //*[@id="new_project_types"]/option[2]
+${FIELD_F5_LOCAL_ATUACAO}                //*[@id="workplace_location"]/option[2]      #[2]=Rio - Carmerino
+${FIELD_F5_LOCAL_FAT}                    //*[@id="billing_location"]/option[5]        #[5]=Rio de Janeiro
 
+${FIELD_F5_QTD_MESES}                   //*[@id="total_months"]
+# &{FIELD_F5_QTD_MESES}    locator=xpath=//input[@id="total_months"]    valor=6
 
+# &{FIELD_F5_QTD_MESES}                    
+#  ...    Locator=xpath=//input[@id="total_months"]
+#  ...    valor=6
 
-${SUBMENUS_LISTAR_DEMANDA}               //a[contains(text(), 'Listar Demandas')]
-${BUSCA_DEMANDA}                        //*[@id='search_demand']
-${COD_DEMANDA}                           NRJCLA2670
+${FIELD_F5_TIPO_LOCACAO}                 //*[@id="allocation_type"]/option[3]         #[2]=Hibrido / [3]=Home office / [4]=Presencial
+${FIELD_F5_PROB_FECHAMENTO}              //*[@id="opportunity_scale"]/option[2]
+${FIELD_F5_NUMERO_PPM}                   //*[@id="ppm_number"]
+${FIELD_F5_VL_OPORTUNIDADE}              //*[@id="total_value_opportunity"]
+${FIELD_F5_MOEDA_OPORTUNIDADE}           //*[@id="divisa_oportunidad"]/option[3]      #[3]=BRL    
+${FIELD_F5_MIGRACAO_CONSULTORIA}         //*[@id="consult_migration"]/option[3]       #[3]=Não
+${FIELD_F5_ANEXAR_ARQUIVO}               //*[@id="input-file-op-sl"]
+
+# ${SUBMENUS_LISTAR_DEMANDA}               //a[contains(text(), 'Listar Demandas')]
+# ${BUSCA_DEMANDA}                         //*[@id='search_demand']
+# ${COD_DEMANDA}                           NRJCLA2670
 
 
 
@@ -137,7 +156,7 @@ Preenche formulario Prospecção - Criacao Demanda
     Capture Page Screenshot 
     
     # Campo Título da Demanda
-    Input Text                     ${FIELD_F1_TITULO_DEMANDA}     PV
+    Input Text                     ${FIELD_F1_TITULO_DEMANDA}     PV3
     Click Element                  ${TITULO_DEMANDA_NOME_SELECAO}
     Sleep  1s    
     Click Element                  ${FIELD_F1_CLIENTE}  
@@ -150,7 +169,7 @@ Preenche formulario Prospecção - Criacao Demanda
     Sleep  1s              
     Click Element                  ${FIELD_F1_HORIZONTAL_VERTICAL}               
     Click Element                  ${FIELD_F1_SEGMENTO}   
-    Input Text                     ${FIELD_F1_DT_INICIO_PROJ}       26/06/2025 
+    Input Text                     ${FIELD_F1_DT_INICIO_PROJ}        26/06/2025 
     Click Element                  ${FIELD_F1_TIPO_CONTRATACAO} 
     Sleep  1s
     Log                            ${CAMINHO_ARQUIVO}  
@@ -210,7 +229,7 @@ Preenche formulario Prospecção - Definir Prioridade
     Capture Page Screenshot 
     Sleep  5s 
     Capture Page Screenshot
-    
+    Sleep  5s
     ${fase_2} =    Get Text          //div[@class="actual_phase"] 
     IF     '${fase_2}' == 'Fase Atual: Definir Complexidade'
     Log    Fase da demanda alterada com sucesso! \n PROP. TÉCNICA -> ${fase_2}
@@ -233,28 +252,98 @@ Preenche formulario Prospecção - Definir Complexidade
     Scroll Element Into View         ${SUBMETER_FASE}
     Click Button                     ${SUBMETER_FASE}
     Capture Page Screenshot 
-    Sleep  5s 
+    Sleep  11s 
     Capture Page Screenshot
 
     ${fase_2} =    Get Text          //div[@class="actual_phase"] 
     IF     '${fase_2}' == 'Fase Atual: Elaborar Solução - PT/PC'
     Log    Fase da demanda alterada com sucesso! \n PROP. TÉCNICA -> ${fase_2}
+    
     ELSE
     Log    Fase atual inválida: ${fase_2}
-    Fail   Fase incorreta.
+    Fail   Fase incorreta PC.
     END
 
 
 Preenche formulario Prospecção - Elaborar Solução_PT-PC
     
-    #Numero Com 5 Digitos Usando Evaluate
+    Click Element                 ${FIELD_F5_DIR_RESPONS_VENDA}  
+    Sleep  1s
+    Click Element                 ${FIELD_F5_LINHA_NEGOCIO}         
+    Sleep  1s
+    Click Element                 ${FIELD_F5_SUBTIPO_CLIENTE} 
+    Sleep  1s
+    Click Element                 ${FIELD_F5_TIPO_VENDA}   
+    Sleep  1s
+    Click Element                 ${FIELD_F5_TIPO_PROJETO}                 
+    Sleep  1s
+    Click Element                 ${FIELD_F5_LOCAL_ATUACAO}
+    Sleep  1s
+    Click Element                 ${FIELD_F5_LOCAL_FAT} 
+    Sleep  1s
+    Input Text    ${FIELD_F5_QTD_MESES}  6
+    # Input Text    ${FIELD_F5_QTD_MESES.locator}    ${FIELD_F5_QTD_MESES.valor}
+    Sleep  3s
+    Click Element                 ${FIELD_F5_TIPO_LOCACAO}  
+    Sleep  1s
+    Click Element                 ${FIELD_F5_PROB_FECHAMENTO}
+    Sleep  1s  
+
+    # Gera Numero Com 5 Digitos Usando Evaluate
     ${numero}=    Evaluate    __import__('random').randint(10000, 99999)
     Log    Número inteiro com 5 dígitos: ${numero}
+    Input TexT    ${FIELD_F5_NUMERO_PPM}    ${numero}
+    # Sleep  2s
+    # Capture Page Screenshot
     Sleep  5s
-    Input TexT    ${FIELD_F5_NUMERO-PPM}    ${numero}
-    Sleep  2s
+    Click Element                 ${FIELD_F5_NUMERO_PPM}     
+    Sleep  1s   
+    Input Text                 ${FIELD_F5_VL_OPORTUNIDADE}     500.000,00
+    Sleep  1s 
+    Click Element                 ${FIELD_F5_MOEDA_OPORTUNIDADE} 
+    Sleep  1s   
+    Click Element                 ${FIELD_F5_MIGRACAO_CONSULTORIA} 
+    Log                           ${CAMINHO_ARQUIVO}  
+    File Should Exist             ${CAMINHO_ARQUIVO}
+    Choose File                   ${FIELD_F5_ANEXAR_ARQUIVO}     ${CAMINHO_ARQUIVO}
+    Capture Page Screenshot  
+    Scroll Element Into View         ${SUBMETER_FASE}
+    Click Button                     ${SUBMETER_FASE}
+    Capture Page Screenshot 
+    Sleep  11s 
     Capture Page Screenshot
-    Sleep  5s
+
+    ${fase_2} =    Get Text          //div[@class="actual_phase"] 
+    IF     '${fase_2}' == 'Fase Atual: Elaborar e Anexar BP'
+    Log    Fase da demanda alterada com sucesso! \n PROP. TÉCNICA -> ${fase_2}
+    
+    ELSE
+    Log    Fase atual inválida: ${fase_2}
+    Fail   Fase incorreta.
+    END               
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+   
     # Click Element    
     # Sleep  1s
     # Click Element    
