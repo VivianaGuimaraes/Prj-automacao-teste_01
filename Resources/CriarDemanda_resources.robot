@@ -5,7 +5,7 @@ Resource                        ../Resources/Libraries/Libraries-file_resources.
 
 
 *** Variables ***
-${SITE_HOT}                      https://hotcorphml.globalhitss.com.br/login/
+${SITE_HOT}                      https://hotcorphml.globalhitss.com.br/login/        # https://hotcorptst.globalhitss.com.br/
 ${ZOOM_FATOR}                    0.9
 ${ZOOM_ARG}                      --force-device-scale-factor=0.8
 ${FIELD_EMAIL}                   name:username
@@ -42,7 +42,7 @@ ${SUBMETER_FASE}                            //*[@id="btn_save_all"]
 
 # Formulário - PROSPECÇÃO: Adotar Demanda
 ${FIELD_F2_DIRETORIA_HITSS}                   //*[@id="hitss_director"]/option[3]
-${FIELD_F2_RESP_AREA_HITSS}                  //*[@id="hitss_manager"]/option[14]
+${FIELD_F2_RESP_AREA_HITSS}                  //*[@id="hitss_manager"]/option[14]        # //select[@id="hitss_manager"]/option[text()="Ana Laura Nogueira Farias"]
 ${FIELD_F3_TORRE_HITSS}                     //*[@id="hitss_tower"]/option[3]
 ${FIELD_F2_RESP_DERIVERY}                  //*[@id="delivery_owner"]/option[3]
 ${FIELD_F2_RESP_DEVENGADO}                 //*[@id="owner_accurate"]/option[16]
@@ -104,15 +104,6 @@ Abre Navegador Com Zoom Personalizado
     Go To    ${SITE_HOT} 
     # [Documentation]  Executa os passos principais de login para o site HOT
     
-    # # Abre o navegador Chrome com o zoom definido via --force-device-scale-factor.
-    # [Arguments]    ${SITE_HOT}     ${zoom_fator}=1.0
-    # ${chrome options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
-    # ${zoom arg}=    Catenate    SEPARATOR=    --force-device-scale-factor=    ${zoom_fator}
-    # Call Method    ${chrome options}    add_argument    ${zoom arg}
-    # Create WebDriver    Chrome    options=${chrome options}
-    # Maximize Browser Window
-    # Go To    ${SITE_HOT} 
-
     # Informa dados validos
     # QUANDO informa email válido
     Wait Until Element Is Visible      ${FIELD_EMAIL}
@@ -145,7 +136,6 @@ Acessa modulo Gestao da Demanda
     Capture Page Screenshot
 
 Preenche formulario Prospecção - Criacao Demanda
-    # Campo Classificação  
     Click Element                    ${FIELD_F1_CLASSIFICACAO}
     Click Element                    ${CLASSIFICACAO_OPORTUNIDADE}
     Sleep  2s

@@ -17,16 +17,21 @@ ${POPUP_AVISO}                   id:ModalLabel1
 ${AVISO_OK}                      xpath=//button[text()='OK']
 ${MENUS_HOT}                     //a[contains(text(), 'Gestão da Demanda')]
 # ${SUBMENUS_GESTAO_DEMANDA}       //a[contains(text(), 'Gestão da Demanda')]
-${SUBMENUS_NOVA_DEMANDA}         //a[contains(text(), 'Nova Demanda')]
+#${SUBMENUS_NOVA_DEMANDA}         //a[contains(text(), 'Nova Demanda')]
 ${SUBMENUS_LISTAR_DEMANDA}       //a[contains(text(), 'Listar Demandas')]
-${BUSCA_DEMANDA}                 //*[@id='search_demand']
-${COD_DEMANDA}                   NRJCLA2670
+
+&{BUSCA_DEMANDA}                 
+...    locator=//*[@id='search_demand']
+...    valor=NRJCLA2670
+
+#${RESULTADO_BUSCA_DEMANDA}    //th[contains(text(), 'NRJCLA178')]
+${RESULTADO_BUSCA_DEMANDA}    //th[contains(text(), '${BUSCA_DEMANDA.valor}')]
 
 
 
 
 *** Keywords ***
-Executar Suite
+ Abre Navegador Com Zoom Personalizado
     [Documentation]  Executa os passos principais de login para o site HOT
     
     # Abre o navegador Chrome com o zoom definido via --force-device-scale-factor.
@@ -64,18 +69,29 @@ Executar Suite
     Scroll Element Into View         ${MENUS_HOT}  
     Sleep  5s
     Capture Page Screenshot  
-    Click Element                    ${SUBMENUS_NOVA_DEMANDA}    
     
-        
-    # Click Element    # ${SUBMENUS_GESTAO_DEMANDA}
-    # Click Element    ${submenus_nova_demandas}
-    # Sleep  3s
+
+ Acessa modulo Gestao da Demanda
+    Scroll Element Into View        ${SUBMENUS_LISTAR_DEMANDA}
+    Click Element                   ${SUBMENUS_LISTAR_DEMANDA}
+    Sleep  2s
+    Input Text         ${BUSCA_DEMANDA.locator}     ${BUSCA_DEMANDA.valor}
+    Sleep  10s
+
+    
+
+    ${busca_codigo} =    Get Text          ${RESULTADO_BUSCA_DEMANDA} 
+    IF     '${busca_codigo}' == '${RESULTADO_BUSCA_DEMANDA} '
+    Log    Código correto -> {busca_codigo}
+    ELSE
+    Log    Código inexistente: ${busca_codigo}
+    Fail   Código incorreto.
+    END
+
+
+
+
+
+
     # Capture Page Screenshot
-    # Click Element      ${SUBMENUS_LISTAR_DEMANDA}
-    Sleep  3s
-    Capture Page Screenshot
-    # Capture Element Screenshot    ${submenus_listar_demanda}
-    # Input Text       ${BUSCA_DEMANDA}     ${COD_DEMANDA}
-    Sleep    5s
-    Capture Page Screenshot
-    # Close All Browsers
+    # # Close All Browsers
