@@ -156,7 +156,7 @@ Preenche formulario Prospecção - Criacao Demanda
     Capture Page Screenshot 
     
     # Campo Título da Demanda
-    Input Text                     ${FIELD_F1_TITULO_DEMANDA}     PV3
+    Input Text                     ${FIELD_F1_TITULO_DEMANDA}     PV6
     Click Element                  ${TITULO_DEMANDA_NOME_SELECAO}
     Sleep  1s    
     Click Element                  ${FIELD_F1_CLIENTE}  
@@ -311,8 +311,10 @@ Preenche formulario Prospecção - Elaborar Solução_PT-PC
     Click Button                     ${SUBMETER_FASE}
     Capture Page Screenshot 
     Sleep  11s 
+    Scroll Element Into View         ${SUBMETER_FASE}
     Capture Page Screenshot
 
+    Sleep  5s
     ${fase_2} =    Get Text          //div[@class="actual_phase"] 
     IF     '${fase_2}' == 'Fase Atual: Elaborar e Anexar BP'
     Log    Fase da demanda alterada com sucesso! \n PROP. TÉCNICA -> ${fase_2}
