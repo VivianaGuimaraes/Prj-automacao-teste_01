@@ -34,6 +34,7 @@ ${FIEDL_F1_LIDER_TEC_CLIENTE}                 //*[@id="client_technical_owner"]/
 ${FIELD_F1_HORIZONTAL_VERTICAL}               //*[@id="horizontal_vertical"]/option[2]
 ${FIELD_F1_SEGMENTO}                          //*[@id="segmento"]/option[2]
 ${FIELD_F1_DT_INICIO_PROJ}                   //*[@id="expected_start_date"]
+${FORMATO}                                   30/07/2025
 ${FIELD_F1_TIPO_CONTRATACAO}                //*[@id="hiring_type"]/option[3]   # [2]=LPU / [3]=Serviço Gerenciado
 ${FIELD_F1_ANEXAR_ARQUIVO}                  //*[@id="input-file-client"]
 ${CAMINHO_ARQUIVO}                          C:/GLOBAL_HITSS/GEST-DEMANDAS/data/MASSA.xlsx
@@ -146,7 +147,7 @@ Preenche formulario Prospecção - Criacao Demanda
     Capture Page Screenshot 
     
     # Campo Título da Demanda
-    Input Text                     ${FIELD_F1_TITULO_DEMANDA}     PV6
+    Input Text                     ${FIELD_F1_TITULO_DEMANDA}     SEM LPU
     Click Element                  ${TITULO_DEMANDA_NOME_SELECAO}
     Sleep  1s    
     Click Element                  ${FIELD_F1_CLIENTE}  
@@ -159,13 +160,13 @@ Preenche formulario Prospecção - Criacao Demanda
     Sleep  1s              
     Click Element                  ${FIELD_F1_HORIZONTAL_VERTICAL}               
     Click Element                  ${FIELD_F1_SEGMENTO}   
-    Input Text                     ${FIELD_F1_DT_INICIO_PROJ}        26/06/2025 
+    Input Text                     ${FIELD_F1_DT_INICIO_PROJ}        ${FORMATO} 
     Click Element                  ${FIELD_F1_TIPO_CONTRATACAO} 
     Sleep  1s
     Log                            ${CAMINHO_ARQUIVO}  
     File Should Exist              ${CAMINHO_ARQUIVO}
     Choose File                    ${FIELD_F1_ANEXAR_ARQUIVO}     ${CAMINHO_ARQUIVO}
-    Input Text                     ${FIELD_F1_DESCRICAO}  DEMANDA OPORTUNIDADE SEM LPU
+    Input Text                     ${FIELD_F1_DESCRICAO}  OPORTUNIDADE SEM LPU
     Capture Page Screenshot  
     Scroll Element Into View       ${SUBMETER_FASE}
     Click Button                   ${SUBMETER_FASE}
@@ -271,7 +272,7 @@ Preenche formulario Prospecção - Elaborar Solução_PT-PC
     Sleep  1s
     Click Element                 ${FIELD_F5_LOCAL_FAT} 
     Sleep  1s
-    Input Text    ${FIELD_F5_QTD_MESES}  6
+    Input Text    ${FIELD_F5_QTD_MESES}  12
     # Input Text    ${FIELD_F5_QTD_MESES.locator}    ${FIELD_F5_QTD_MESES.valor}
     Sleep  3s
     Click Element                 ${FIELD_F5_TIPO_LOCACAO}  
@@ -305,7 +306,7 @@ Preenche formulario Prospecção - Elaborar Solução_PT-PC
     Capture Page Screenshot
 
     Sleep  5s
-    ${fase_2} =    Get Text          //div[@class="actual_phase"] 
+    ${fase_2} =    Get Text          //*[@id="call_details"]/button/div[3]
     IF     '${fase_2}' == 'Fase Atual: Elaborar e Anexar BP'
     Log    Fase da demanda alterada com sucesso! \n PROP. TÉCNICA -> ${fase_2}
     

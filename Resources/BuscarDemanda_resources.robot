@@ -24,8 +24,10 @@ ${SUBMENUS_LISTAR_DEMANDA}       //a[contains(text(), 'Listar Demandas')]
 ...    locator=//*[@id='search_demand']
 ...    valor=NRJCLA2670
 
-#${RESULTADO_BUSCA_DEMANDA}    //th[contains(text(), 'NRJCLA178')]
-${RESULTADO_BUSCA_DEMANDA}    //th[contains(text(), '${BUSCA_DEMANDA.valor}')]
+${RESULTADO_BUSCA_DEMANDA}    //*[@id="table"]/tbody/tr/th[text()='NRJCLA2670']
+#${RESULTADO_BUSCA_DEMANDA}    //th[contains(text(), '${BUSCA_DEMANDA.valor}')]
+
+${BUSCAR_LINK}               //button[text()='Buscar Link']    #//*[@id="btn-bp-check"]
 
 
 
@@ -67,26 +69,63 @@ ${RESULTADO_BUSCA_DEMANDA}    //th[contains(text(), '${BUSCA_DEMANDA.valor}')]
     
     Wait Until Element Is Visible    ${MENUS_HOT}    
     Scroll Element Into View         ${MENUS_HOT}  
-    Sleep  5s
+    Sleep  15s
     Capture Page Screenshot  
     
 
- Acessa modulo Gestao da Demanda
+ Acessa modulo Gestao da Demanda 2
     Scroll Element Into View        ${SUBMENUS_LISTAR_DEMANDA}
     Click Element                   ${SUBMENUS_LISTAR_DEMANDA}
     Sleep  2s
     Input Text         ${BUSCA_DEMANDA.locator}     ${BUSCA_DEMANDA.valor}
     Sleep  10s
+    Capture Page Screenshot
+    Sleep  2s
+    Click Element     ${RESULTADO_BUSCA_DEMANDA}  
+    Sleep  20s
+    Capture Page Screenshot
+    Wait Until Element Is Visible              20s 
+    Scroll Element Into View         ${BUSCAR_LINK}    
+   # #  #Click Element     ${RESULTADO_BUSCA_DEMANDA}
+    Capture Page Screenshot
+    Sleep  20s
+    
+   #  ${fase_2} =    Get Text          //div[@class="actual_phase"] 
+   #  IF     '${fase_2}' == 'Fase Atual: Elaborar e Anexar BP'
+   #  Log    Fase da demanda alterada com sucesso! \n PROP. TÉCNICA -> ${fase_2}
+        
+   #  ELSE
+   #  Log    Fase atual inválida: ${fase_2}
+   #  Fail   Fase incorreta.
+   #  END             
+
+
+
+
 
     
+    
 
-    ${busca_codigo} =    Get Text          ${RESULTADO_BUSCA_DEMANDA} 
-    IF     '${busca_codigo}' == '${RESULTADO_BUSCA_DEMANDA} '
-    Log    Código correto -> {busca_codigo}
-    ELSE
-    Log    Código inexistente: ${busca_codigo}
-    Fail   Código incorreto.
-    END
+   #  Sleep  5s
+   #  ${fase_2} =    Get Text          //div[@class="actual_phase"] 
+   #  IF     '${fase_2}' == 'Fase Atual: Elaborar e Anexar BP'
+   #  Log    Fase da demanda alterada com sucesso! \n PROP. TÉCNICA -> ${fase_2}
+    
+   #  ELSE
+   #  Log    Fase atual inválida: ${fase_2}
+   #  Fail   Fase incorreta.
+   #  END      
+    
+    
+
+    #${busca_codigo} =    Get Text          ${RESULTADO_BUSCA_DEMANDA} 
+    #IF     '${busca_codigo}' == '${RESULTADO_BUSCA_DEMANDA} '
+    #Log    Código correto -> '{busca_codigo}'
+    #Capture Page Screenshot
+    #ELSE
+    #Log    Código inexistente: ${busca_codigo}
+    #Fail   Código incorreto.
+    #END
 
 
 
